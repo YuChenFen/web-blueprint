@@ -1,0 +1,24 @@
+{
+  "name": "web-blueprint",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "node server/server.js"
+  },
+  "dependencies": {
+    "@monaco-editor/loader": "^1.4.0",
+    "@vue-flow/core": "^1.39.3",
+    "monaco-editor": "^0.51.0",
+    "pinia": "^2.2.1",
+    "posthtml-parser": "^0.12.0",
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
+    "vite": "^4.4.0"
+  }
+}

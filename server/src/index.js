@@ -1,0 +1,1 @@
+let ctx = document.querySelector('canvas').getContext("2d");ctx.strokeStyle = "#f00";ctx.beginPath();ctx.rect(10, 10, 100, 100);ctx.stroke();

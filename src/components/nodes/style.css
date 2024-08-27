@@ -1,0 +1,95 @@
+.node-container {
+    color: #fff;
+    border-radius: 5px;
+    cursor: auto;
+    box-shadow: 4px 4px 8px rgba(16, 16, 16, 0.8),
+        -2px -4px 8px rgba(16, 16, 16, 0.8);
+}
+
+.node-container header {
+    position: relative;
+    height: 30px;
+    border-radius: 5px 5px 0 0;
+    cursor: grab;
+}
+
+.node-container header:active {
+    cursor: grabbing;
+}
+
+.node-container header p {
+    text-align: center;
+    line-height: 30px;
+    color: #2a2a2a;
+    font-size: 0.8rem;
+}
+
+.node-container main {
+    border-radius: 0 0 5px 5px;
+    background-color: #2a2a2a;
+    display: flex;
+    gap: 50px;
+    padding: 10px 15px;
+}
+
+.node-container .left,
+.node-container .right {
+    flex: 1;
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+}
+
+.node-container .handle-container {
+    flex: 0 0 20px;
+    position: relative;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.node-container .right .handle-container {
+    flex-direction: row-reverse;
+}
+
+.node-container .left .handle p {
+    transform: translate(16px, 0);
+}
+
+.node-container .right .handle p {
+    transform: translate(-16px, 0);
+}
+
+.node-container .left {
+    align-items: flex-start;
+}
+
+.node-container .right {
+    align-items: flex-end;
+}
+
+.node-container .handle {
+    width: 14px;
+    height: 14px;
+    filter: brightness(0.4);
+}
+
+.node-container .handle p {
+    color: #989898;
+    text-align: center;
+    line-height: 14px;
+    font-size: 9px;
+}
+
+.node-container .delete-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    fill: #fff;
+    cursor: pointer;
+}
+
+.node-container .delete-icon:hover {
+    fill: rgb(255, 66, 66);
+}

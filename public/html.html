@@ -1,0 +1,47 @@
+<!-- 热更新方案一：利用 localStorage （或window.addEventListener("message")实现页间通信） 监听解析结果，修改iframe页面的body内容 -->
+<!-- 不足：head标签结果不能展示 -->
+<!-- 替代方案：利用websocket间接实现页间通信。（当服务端文本有更新时，将发送给所有页面，让页面重新加载，实现案例在server下），但这将不能将该项目的所有代码打包为静态页面 -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>iframe页面</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <iframe frameborder="0"></iframe>
+    <script>
+        let iframe, frameWin, frameDoc, frameBody;
+        if (!iframe) {
+            iframe = document.querySelector('iframe');
+            iframe.style.cssText = `width: ${window.innerWidth}px; height: ${window.innerHeight - 4}px;`;
+            iframe.onload = function () {
+                console.log("iframe加载完成");
+                frameWin = document.querySelector('iframe').contentWindow;
+                frameDoc = frameWin.document;
+                frameBody = frameDoc.body;
+                frameBody.innerHTML = "";
+            }
+            document.body.appendChild(iframe);
+        }
+        /* 监听本地存储 */
+        window.addEventListener('storage', function (event) {
+            console.log("监听到本地存储变化", event);
+            if (event.key === 'html') {
+                frameBody.innerHTML = event.newValue;
+            }
+        });
+    </script>
+</body>
+
+</html>
